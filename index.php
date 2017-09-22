@@ -1,39 +1,38 @@
-<?php
-//    include('./header.html');
-//    echo '<div>Ö÷Ò³ÄÚÈİ</div>';
-//    include('./footer.html');
-//    include('./views/main/index.html');
-//    ±ØĞëÍ¨¹ıuRLÇø·ÖÓÃ»§Ïë·ÃÎÊÄÇ¸öÒ³Ãæ
-//    var_dump($_SERVER);
-// ºó¶ËÂ·ÓÉ
-//    array_key_exists(key,search)
-// Ä¬ÈÏÄ¿Â¼Ãû³Æ
-    $dir = 'main';
-    //Ä¬ÈÏÎÄ¼şÃû³Æ
-    $filename='index';
+<?php 
+  // åç«¯è·¯ç”±ï¼ˆæ ¹æ®URLçš„ä¸åŒå“åº”ä¸åŒçš„é¡µé¢ï¼‰
 
-//    ´¦ÀíÂ·ÓÉ ´¦ÀíurlµÄÂ·¾¶
-    if(array_key_exists('PATH_INFO', $_SERVER)){
-//    »ñÈ¡ÇëÇóÂ·¾¶
-      $path = $_SERVER['PATH_INFO'];
-//      È¥µôµÚÒ»¸öĞ±¸Ü
-        $str = substr($path,1);
-//      ×Ö·û´®·Ö¸î£¬ºÍjsÖĞsplit·½·¨ºÜÏë
-        $ret = explode('/',$str);
-        if(count($ret) == 2){
-            //¼ÆÊı2  Â·ÓÉÓĞÁ½²ã
-            $dir = $ret[0];//¸²¸ÇÄ¿Â¼
-            $filename = $ret[1]; //¸²¸ÇÎÄ¼şÃû
+  // header('content-type:text/html; charset=utf8');
+  // include('./header.html');
+  // echo '<div>ä¸»é¡µå†…å®¹</div>';
+  // include('./footer.html');
+  // include åœ¨å½“å‰PHPé¡µé¢å†…éƒ¨åµŒå…¥ä¸€ä¸ªå­é¡µé¢
 
-        }else{
-//            ÆäËûÇé¿öÈ«²¿Ìø×ªµ½µÇÂ¼Ò³
-            $filename = 'login';
-        }
+  // å¿…é¡»èƒ½å¤Ÿé€šè¿‡URLåŒºåˆ†å‡ºç”¨æˆ·æƒ³è®¿é—®å“ªä¸ªé¡µé¢
 
+  // é»˜è®¤ç›®å½•åç§°
+  $dir = 'main';
+  // é»˜è®¤æ–‡ä»¶åç§°
+  $filename = 'index';
 
-
+  // å¤„ç†URLçš„è·¯å¾„
+  if(array_key_exists('PATH_INFO', $_SERVER)){
+    // PATH_INFOå±æ€§å­˜åœ¨
+    // è·å–è¯·æ±‚è·¯å¾„
+    $path = $_SERVER['PATH_INFO']; // /main/index
+    // å»æ‰ç¬¬ä¸€ä¸ªæ–œæ 
+    $str = substr($path, 1); // main/index
+    // å­—ç¬¦ä¸²åˆ†å‰²ï¼Œå’Œjsä¸­splitæ–¹æ³•å¾ˆåƒ
+    $ret = explode('/', $str);
+    if(count($ret) == 2){
+      // è·¯ç”±æœ‰ä¸¤å±‚
+      $dir = $ret[0];// è¦†ç›–ç›®å½•
+      $filename = $ret[1]; // è¦†ç›–æ–‡ä»¶åç§°
+    }else{
+      // å…¶ä»–æƒ…å†µå…¨éƒ¨è·³è½¬åˆ°ç™»å½•é¡µé¢
+      $filename = 'login';
     }
-//    echo $path;
-//Ç¶Èë×ÓÒ³Ãæ
-    include('./views/'.$dir.'/'.$filename.'.html');
+  }
+  // åµŒå…¥å­é¡µé¢
+  include('./views/'.$dir.'/'.$filename.'.html');
+
 ?>
