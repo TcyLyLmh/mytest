@@ -11,13 +11,18 @@ require.config({
     form : 'jquery-form/jquery.form',
     uploadify : 'uploadify/jquery.uploadify.min',
     region : 'jquery-region/jquery.region',
-    ckeditor:'ckeditor/ckeditor',
+    ckeditor : 'ckeditor/ckeditor',
     util : '../js/util',
     common : '../js/common',
     login : '../js/login',
     teacherlist : '../js/teacher-list',
     teacheradd : '../js/teacher-add',
-    settings : '../js/settings'
+    settings : '../js/settings',
+    index : '../js/index',
+    courselist : '../js/course-list',
+    courseadd : '../js/course-add',
+    coursebasic : '../js/course-basic',
+    coursepicture :'../js/course-picture'
   },
   shim : {
     bootstrap : {
@@ -32,9 +37,8 @@ require.config({
     uploadify : {
       deps : ['jquery']
     },
-    ckeditor:{
-      exports:'CKEDITOR'
+    ckeditor : {
+      exports : 'CKEDITOR'
     }
-
   }
 });
